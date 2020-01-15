@@ -1,0 +1,25 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sea Pack Movers</a>
+{#      <input class="form-control form-control-dark w-50 justify-content" type="text" placeholder="Search" aria-label="Search">#}
+      <ul class="navbar-nav px-sm-5">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit">Login</button>
+    </form>
+    </div>
+{% endblock %}

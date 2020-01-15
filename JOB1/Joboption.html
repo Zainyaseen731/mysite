@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li p{
+  float: left;
+ display: block;
+  color: white;
+  text-align: center;
+  padding: 3px 40px;
+  margin-left: 5px;
+  text-decoration: none;
+  height:15px;
+}
+
+li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("zain2.jpeg");
+   min-height: 604px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color:black;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  color:white;
+}
+ 
+.sidebar a.active {
+  background-color:gray;
+  color: black;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: gray;
+  color: white;
+}
+
+.bar a:hover:not(.active) {
+  background-color: gray;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 580px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+</style>
+</head>
+<body>
+<div>
+<ul class="bar">
+  <li><p>Jobs</p></li>
+  <li style="float: right"><a href="#">Log Out</a></li>
+  <li style="float: right"><a href="#about">About</a></li>
+  <li style="float: right"><a href="index.html">Home</a></li>  
+</ul>
+</div>
+<div class="bg-img" >
+ <div class="sidebar">
+  <a href="#home">Available jobs</a>
+  <a href="addjob.html">Add job</a>
+  <a href="#about">Update a job</a>
+  <a href="#about">Delete a job</a>
+</div>
+
+<div class="content">
+  <h2>Responsive Sidebar Example</h2>
+  <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
+  <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
+  <h3>Resize the browser window to see the effect.</h3>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Collecting Django
+  Downloading https://files.pythonhosted.org/packages/a6/2b/fbd71ae0980c899c0df70779d36c5897a6b56518eb5942ddd53b0b969b30/Django-1.11.27-py2.py3-none-any.whl (6.9MB)
+Collecting pytz (from Django)
+  Using cached https://files.pythonhosted.org/packages/e7/f9/f0b53f88060247251bf481fa6ea62cd0d25bf1b11a87888e53ce5b7c8ad2/pytz-2019.3-py2.py3-none-any.whl
+Installing collected packages: pytz, Django
+Successfully installed Django-1.11.27 pytz-2019.3

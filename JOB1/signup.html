@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+$('#iconified').on('keyup', function() {
+    var input = $(this);
+    if(input.val().length === 0) {
+        input.addClass('empty');
+    } else {
+        input.removeClass('empty');
+    }
+});
+
+function fnamevalid()
+{
+  if(document.signup.fname.value == "") 
+     {
+
+      document.getElementById("fname_error").innerHTML="First Name field is empty!";
+      document.signup.fname.focus();
+     }
+  if(document.signup.fname.value !="")
+     {
+            document.signup.lname.focus();
+           
+     }
+}
+
+function lnamevalid()
+{
+  if(document.signup.lname.value == "") 
+     {
+
+      document.getElementById("lname_error").innerHTML="Last Name field is empty!";
+      document.signup.lname.focus();
+     }
+  else{
+            document.signup.uname.focus();
+           
+     }
+}
+
+function unamevalid()
+{
+  if(document.signup.uname.value == "") 
+     {
+
+      document.getElementById("uname_error").innerHTML="User Name field is empty!";
+      document.signup.uname.focus();
+     }
+  else{
+            document.signup.email.focus();
+           
+     }
+}
+
+
+function emailvalid()
+{
+   if(document.signup.email.value == "")
+     {
+       document.getElementById("email_error").innerHTML="Email field is empty!";
+      document.signup.email.focus();
+     }
+   else if(!document.signup.email.value.includes('@') || !document.signup.email.value.includes('.') || document.signup.email.value.includes(' ')) 
+     {
+      document.getElementById("email_error").innerHTML="Email Formate invalid";
+      document.signup.email.focus();
+      }
+   else if(document.signup.email.value.includes('@') && document.signup.email.value.includes('.') && !document.signup.email.value.includes(' '))
+     {
+            document.signup.psw.focus();
+           
+     }
+}
+
+function pswvalid()
+{
+ if(document.signup.psw.value == "") 
+     {
+      document.getElementById("psw_error").innerHTML="Password field is empty!";
+      document.signup.psw.focus();
+     }
+ else{
+      document.signup.cpsw.focus();
+}
+}
+
+function cpswvalid()
+{
+ if(document.signup.cpsw.value == "") 
+     {
+      document.getElementById("cpsw_error").innerHTML="Conferm Password field is empty!";
+      document.signup.cpsw.focus();
+     }
+ else if(document.signup.psw.value!=document.signup.cpsw.value)
+  {
+      document.getElementById("cpsw_error").innerHTML="Passwords not same";
+      document.signup.cpsw.value="";
+      document.signup.cpsw.focus();
+  }
+}
+</script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 80%;
+  margin-bottom: 15px;
+  margin-left: 90px;
+}
+
+.icon {
+  padding: 10px;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  margin-left: 90px;
+
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+   border: 0;
+  outline: 0;
+   background: none;
+  border-bottom: 2px solid black;
+}
+
+.input-field:focus {
+  border-bottom: 2px solid black;
+}
+p{
+  margin-left: 90px;
+}
+/* Set a style for the submit button */
+.btn {
+  background-color:black ;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 65%;
+  opacity: 0.9;
+border-radius: 15px;
+margin-left: 90px;
+}
+.error{
+  font-size: 14px;
+  color: red;
+  display:block;
+   }
+
+.btn:hover {
+  opacity: 1;
+}
+input.empty {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 110%;
+    text-decoration: inherit;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li p{
+  float: left;
+ display: block;
+  color: white;
+  text-align: center;
+  padding: 3px 40px;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+.bg-img {
+  /* The image used */
+  background-image: url("zain2.jpeg");
+  min-height: 580px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+::placeholder {
+  color: black;
+}
+</style>
+
+<body>
+
+<div>
+<ul>
+  <li><p>JOB</p></li>
+  <li style="float: right"><a href="#about">About</a></li>
+  <li style="float: right"><a href="Signin.html">Sign in</a></li>
+  <li style="float: right"><a class="active" href="index.html">Home</a></li>  
+</ul>
+</div>
+<div class="bg-img">
+<br>
+<form  method="post" action="Insert" style="max-width:500px;margin:auto" name=signup>
+  <h1 align="center" style="color:black">Sign Up</h1>
+  <p>First Name</p>
+  <div class="input-container">
+    <input type="text" class="input-field empty" id="iconified" placeholder="&#xf007           Type your firstname " name="fname" onfocusout="fnamevalid()">
+    <span class="error"><p id="fname_error"></p></span>
+  </div>
+  <p>Last Name</p>
+  <div class="input-container">
+    <input type="text" class="input-field empty" id="iconified" placeholder="&#xf007           Type your lastname " name="lname"  onfocusout="lnamevalid()"  >
+    <span class="error"><p id="lname_error"></p></span>
+  </div>
+  <p>User Name</p>
+  <div class="input-container">
+    <input type="text" class="input-field empty" id="iconified" placeholder="&#xf007           Type your username " name="uname" onfocusout="unamevalid()">
+    <span class="error"><p id="uname_error"></p></span>
+  </div>
+  <p>Email ID</p>
+  <div class="input-container">
+    <input type="text" class="input-field empty" id="iconified" placeholder="&#xf0e0           Type your email " name="email" onfocusout="emailvalid()">
+    <span class="error"><p id="email_error"></p></span>
+  </div>
+  <p>Password</p>
+  <div class="input-container">
+    <input class="input-field empty" id="iconified" placeholder="&#xf09c           Type your password " type="password" name="psw" id="myInput" onfocusout="pswvalid()">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <span class="error"><p id="psw_error"></p></span>
+  </div>
+  <p>Conferm Password</p>
+  <div class="input-container">
+    <input class="input-field empty" id="iconified" placeholder="&#xf09c           Type your conform password " type="password" name="cpsw" id="nyInput" onfocusout="cpswvalid()">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <span class="error"><p id="cpsw_error"></p></span>
+  </div>
+  <br>
+  <button type="submit" class="btn">SignUp</button>
+</form>
+</div>
+</body>
+</html>
